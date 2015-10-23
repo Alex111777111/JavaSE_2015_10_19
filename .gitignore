@@ -2,3 +2,7 @@
 build
 dist
 
+/BreakTest/nbproject/private/
+/FirstClassApp/nbproject/private/
+/GraphicsExample/nbproject/private/
+/ReferenceExample/nbproject/private/
