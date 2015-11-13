@@ -1,3 +1,5 @@
 # netbeans
 build
 dist
+/FileExceptionExample/nbproject/private/
+/InitExample/nbproject/private/
