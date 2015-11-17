@@ -3,3 +3,7 @@ build
 dist
 /FileExceptionExample/nbproject/private/
 /InitExample/nbproject/private/
+/WeatherExample/nbproject/private/
+/WeatherLibrary/nbproject/private/
+/WeatherProvider/nbproject/private/
+/FileStreamExample/nbproject/private/
