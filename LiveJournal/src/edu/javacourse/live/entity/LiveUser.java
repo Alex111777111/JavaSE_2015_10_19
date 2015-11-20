@@ -38,4 +38,39 @@ public class LiveUser
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + (int) (this.userId ^ (this.userId >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LiveUser other = (LiveUser) obj;
+        if (this.userId != other.userId) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Object clone() {
+        LiveUser lu = new LiveUser();
+        lu.setAlias(alias);
+        lu.setEmail(email);
+        lu.setPassword(password);
+        lu.setUserId(userId);
+        return lu;
+    }
+
+    
+    
 }
