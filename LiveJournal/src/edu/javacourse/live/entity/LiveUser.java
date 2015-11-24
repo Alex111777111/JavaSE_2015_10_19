@@ -1,6 +1,8 @@
 package edu.javacourse.live.entity;
 
-public class LiveUser
+import java.io.Serializable;
+
+public class LiveUser implements Serializable
 {
     private long userId;
     private String alias;

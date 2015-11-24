@@ -3,7 +3,7 @@ package edu.javacourse.live.dao;
 import edu.javacourse.live.config.LiveJournalSettings;
 import edu.javacourse.live.logic.DaoAnnotation;
 
-@DaoAnnotation(daoName = "edu.javacourse.live.dao.LiveUserFakeDAO")
+@DaoAnnotation(daoName = "edu.javacourse.live.dao.LiveUserFileSerialDAO")
 public class LiveUserDAOFactory
 {
     public static LiveUserDAO getLiveUserDAO() {
