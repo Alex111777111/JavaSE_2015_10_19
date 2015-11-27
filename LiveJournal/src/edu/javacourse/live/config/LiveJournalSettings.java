@@ -1,34 +1,31 @@
 package edu.javacourse.live.config;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
 public class LiveJournalSettings
 {
     private static final String FILE_NAME = "livejournal.properties";
-    private static final String DAO_CLASS_NAME = "dao.class.name";
 
-    private static String daoClassName = null;
+    public static final String DAO_CLASS_NAME = "dao.class.name";
+    public static final String FILE_NAME_COMMA = "dao.file.comma";
+    
+    private static Properties props = new Properties();
 
     static {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
-            String str = null;
-            while ((str = br.readLine()) != null) {
-                if (!str.trim().isEmpty()) {
-                    String[] array = str.split("=");
-                    if (array.length == 2 && array[0].equals(DAO_CLASS_NAME)) {
-                        daoClassName = array[1];
-                    }
-                }
-            }
-            br.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            props.load(new FileReader(FILE_NAME));
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
         }
     }
 
+    public static String getProperty(String name) {
+        return props.getProperty(name);
+    }
+    
     public static String getDaoClassName() {
-        return daoClassName;
+        return getProperty(DAO_CLASS_NAME);
     }
 }

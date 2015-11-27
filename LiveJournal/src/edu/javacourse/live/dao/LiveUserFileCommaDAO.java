@@ -1,5 +1,6 @@
 package edu.javacourse.live.dao;
 
+import edu.javacourse.live.config.LiveJournalSettings;
 import edu.javacourse.live.entity.LiveUser;
 import edu.javacourse.live.exception.LiveJournalDAOException;
 import java.io.BufferedReader;
@@ -11,12 +12,11 @@ import java.util.ArrayList;
 
 public class LiveUserFileCommaDAO extends LiveUserFileDAO
 {
-    private static final String FILE_NAME = "users.txt";
 
     @Override
     protected void saveCollection() throws LiveJournalDAOException {
         try {
-            FileWriter fw = new FileWriter(FILE_NAME);
+            FileWriter fw = new FileWriter(LiveJournalSettings.getProperty(LiveJournalSettings.FILE_NAME_COMMA));
             try {
                 BufferedWriter bw = new BufferedWriter(fw);
                 for(LiveUser lu : users) {
@@ -36,7 +36,7 @@ public class LiveUserFileCommaDAO extends LiveUserFileDAO
     protected void loadCollection() throws LiveJournalDAOException {
         users = new ArrayList<>();
         try {
-            FileReader fr = new FileReader(FILE_NAME);
+            FileReader fr = new FileReader(LiveJournalSettings.getProperty(LiveJournalSettings.FILE_NAME_COMMA));
             try {
                 BufferedReader br = new BufferedReader(fr);
                 String line = null;
