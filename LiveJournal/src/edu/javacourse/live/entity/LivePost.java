@@ -1,11 +1,14 @@
 package edu.javacourse.live.entity;
 
+import java.util.Date;
+
 public class LivePost
 {
     private long postId;
     private LiveUser liveUser;
     private String postTitle;
     private String postBody;
+    private Date postDate;
 
     public long getPostId() {
         return postId;
@@ -37,6 +40,14 @@ public class LivePost
 
     public void setPostBody(String postBody) {
         this.postBody = postBody;
+    }
+
+    public Date getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
     }
 
 }
