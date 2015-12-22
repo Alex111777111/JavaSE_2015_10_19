@@ -5,21 +5,15 @@
         <servlet-class>edu.javacourse.web.SimpleServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>edu.javacourse.web.SecondServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SimpleServlet</servlet-name>
         <url-pattern>/controller</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/second</url-pattern>
     </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
 </web-app>

@@ -3,7 +3,6 @@ package edu.javacourse.live.dao;
 import edu.javacourse.live.entity.LiveUser;
 import edu.javacourse.live.exception.LiveJournalDAOException;
 import edu.javacourse.live.filter.LiveUserFilter;
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
+import java.util.PropertyResourceBundle;
 
 public class LiveUserDbDAO implements LiveUserDAO
 {
@@ -23,19 +22,17 @@ public class LiveUserDbDAO implements LiveUserDAO
     private static final String SELECT_ONE = "SELECT * FROM lj_user WHERE user_id = ?";
     private static final String SELECT_ALL = "SELECT * FROM lj_user ORDER BY user_alias";
 
-    private static final String PROP_NAME = "database.properties";
     private static String url;
     private static String login;
     private static String password;
 
     static {
         try {
-            Properties pr = new Properties();
-            pr.load(new FileReader(PROP_NAME));
-            url = pr.getProperty("dao.url");
-            login = pr.getProperty("dao.login");
-            password = pr.getProperty("dao.password");
-            Class.forName(pr.getProperty("dao.driver"));
+            PropertyResourceBundle pr = (PropertyResourceBundle) PropertyResourceBundle.getBundle("database");
+            url = pr.getString("dao.url");
+            login = pr.getString("dao.login");
+            password = pr.getString("dao.password");
+            Class.forName(pr.getString("dao.driver"));
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
         }

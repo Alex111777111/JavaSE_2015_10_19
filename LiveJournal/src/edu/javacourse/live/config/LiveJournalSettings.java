@@ -1,28 +1,20 @@
 package edu.javacourse.live.config;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
+import java.util.PropertyResourceBundle;
 
 public class LiveJournalSettings
 {
-    private static final String FILE_NAME = "livejournal.properties";
-
     public static final String DAO_CLASS_NAME = "dao.class.name";
     public static final String FILE_NAME_COMMA = "dao.file.comma";
     
-    private static Properties props = new Properties();
+    private static PropertyResourceBundle props;
 
     static {
-        try {
-            props.load(new FileReader(FILE_NAME));
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);
-        }
+        props = (PropertyResourceBundle) PropertyResourceBundle.getBundle("livejournal");
     }
 
     public static String getProperty(String name) {
-        return props.getProperty(name);
+        return props.getString(name);
     }
     
     public static String getDaoClassName() {

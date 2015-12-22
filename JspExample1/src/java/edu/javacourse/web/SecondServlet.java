@@ -6,19 +6,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SimpleServlet extends HttpServlet
+public class SecondServlet extends HttpServlet
 {
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String m1 = "Model_1";
-        String m2 = "Model_2";
-        request.setAttribute("MOD_1", m1);
-        request.setAttribute("MOD_2", m2);
-        getServletContext().getRequestDispatcher("/view.jsp").forward(request, response);
+        String attr = (String)request.getAttribute("MOD_1");
+        response.getWriter().append("Hello from SecondServlet:" + attr);
 
     }
-
 }
